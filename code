@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int a, b, i, nrcif = 0, cifpare = 0, cifimpare = 0, uc;
+
+int main()
+{
+    cin >> a >> b;
+    
+    long long s = 0;
+    
+    for(i = a; i <= b; i++)
+    {
+        int copiei = i;
+        
+        while(i > 0)
+        {
+            nrcif ++;
+            
+            uc = i % 10;
+            
+            if(uc % 2 == 0)
+            {
+                cifpare ++;
+            }
+            else
+            {
+                cifimpare ++;
+            }
+            
+            i = i / 10;
+        }
+        
+        i = copiei;
+        
+        if(nrcif % 2 == 0 and cifpare == cifimpare)
+        {
+            s = s + i;
+        }
+        
+        nrcif = 0;
+        cifpare = 0;
+        cifimpare = 0;
+    }
+    
+    cout << s;
+
+    return 0;
+}
